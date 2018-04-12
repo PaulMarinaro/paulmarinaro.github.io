@@ -81,3 +81,11 @@ main {
     border-color: rgba(255, 255, 255, 1);
     cursor: pointer; cursor: hand;
 }
+
+.recordings {
+    /*font-size: 1em;*/
+    /*text-align: left;*/
+    /*text-align: justify;*/
+    /*text-shadow: 3px 2px red;*/
+    font: caption;
+}
