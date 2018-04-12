@@ -27,25 +27,11 @@ $(document).ready(function() {
         // remove class="heading heading-quotes">Quotes by Billy Higgins
         $('.heading-quotes').remove();
         
-
-        //un-comment this to inspect all available data; delete when done //
-
-        //EXAMPLE: Looping over top rated recordings; replace with your code //
-        // let topRated = data.discography.topRated;
-        // _.forEach(topRated, function(recording) {
-        //     console.log(recording);
-        // });
-        
         // map the top rated recordings
         let topRated = data.discography.topRated;
         var topRatedAlbums = _.map(topRated, function(recording) {
-            // console.log(recording);
             return recording;
         });
-        
-//_________________________________________________
-
-//   ($('#list-top-rated > li.top-rated').length) = 0 ???? should = 5
 
 // display the albums as a list
         // make a function that creates a jQuery list item element
@@ -57,10 +43,7 @@ $(document).ready(function() {
             // make a jQuery list item element with class = 'recording'
             let $listItem = $(`<li class="recording top-rated" id=${albumTitleDashed}>`)
                 .on('click', function(event){
-                    //  debugger;
-                    // expect($('#section-top-rated img').length).to.equal(1);
                 $topRatedImage.attr(`src`, `images/album/${albumTitleDashed}.jpg`);
-                // $topRatedImage.attr(`img id`, albumTitleDashed);
             });
             for (var key in album) {
                 // create jQuery <div> element, add class = key to each <div>, add text with key: value
@@ -71,33 +54,15 @@ $(document).ready(function() {
             return $listItem;
         });
         $('#list-top-rated').append($topRecordings);
-
-//_________________________________________________
-        // display the topRatedAlbums as a list
-        // topRatedAlbums.forEach(function(album){
-        //     $('#list-top-rated').append($('<li>' + 'title: '  + album.title + '<br />' 
-        //     + ' artist: ' + album.artist + '<br />' 
-        //     + ' release:<i> ' + album.release + '<br />'
-        //     + ' year:<i> ' + album.year + '<br />' + '</li>').addClass("recordings"));
-        // });
-//_________________________________________________
-        
-        // example of adding "Billy's Rider" to the page
-        // make a <section> called 'section' with id = 'section-rider'
-        // let $section = $('<section>').attr('id', 'section-rider');
-        // insert <h3> at the end of "section" and insert text at the end of id="sections"
-        // $section.append($('<h3>').text('Billy\'s Rider')).appendTo($('#sections'));
         
         // make a <section> called 'recordingSection' with id = 'section-recordings'
         let $recordingSection = $('<section>').attr('id', 'section-recordings')
         .append($('<header id="header-recordings" class="header-recordings">Recordings</header>'));
-        //<header id="header-top-rated" class="header-recordings">Top Rated</header>
-        $recordingSection.append($('<ul id="list-recordings" class="list-recordings">')).appendTo($('#section-top-rated'));
+        $recordingSection.append($('<ul id="list-recordings" class="list-recordings">')).appendTo($('#sidebar'));
 
         // map the recordings
         let recordings = data.discography.recordings;
         var albums = _.map(recordings, function(record) {
-            // console.log(record);
             return record;
         });
         
@@ -111,7 +76,6 @@ $(document).ready(function() {
             // make a jQuery list item element with class = 'recording'
             let $listItem = $(`<li class = "recording" id=${albumTitleDashed}>`)
                 .on('click', function(event){
-                // console.log($(event.currentTarget));
                 $recordingImage.attr(`src`, `images/album/${albumTitleDashed}.jpg`);
             });
             for (var key in album) {
@@ -147,9 +111,7 @@ $(document).ready(function() {
         // console.log('clicked');
         i++;
         if (i === 4) i = 0;
-// ????????????????????????????????????????????????????????????????????????????        
-        // make image fade in? doesn't work...
-        $('#image-billy').attr(`src`, `images/billy/billy-${i}.jpg`).fadeIn(3000);
+        $('#image-billy').attr(`src`, `images/billy/billy-${i}.jpg`);
     };
     $('#image-container-billy').on('click', clickHandler);
     
